@@ -10,11 +10,62 @@
     width           : 100%;
     height          : 60px;
     background-color: var(--amazon-blue-dark);
-
+    display         : flex;
+    align-items     : center;
+    padding-left    : 8px;
 }
 
 .HeaderTopLogo {
     position: relative;
     width   : 150px;
     height  : 40px;
+    cursor  : pointer;
+}
+
+.HeaderSearchBar {
+    width           : 70%;
+    height          : 60%;
+    background-color: var(--amazon-yellow);
+    display         : flex;
+    border-radius   : 8px;
+
+}
+
+.HeaderSearchBar:hover {
+    background-color: var(--amazon-yellow-dark);
+}
+
+.SearchInput {
+    flex                     : 1;
+    border-top-left-radius   : 8px;
+    border-bottom-left-radius: 8px;
+    border                   : none;
+    padding-left             : 10px;
+    font-size                : 1rem;
+}
+
+.SearchInput:focus {
+    outline: none;
+
+}
+
+.SearchIcon {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    height         : 100%;
+    min-width      : 50px;
+    cursor         : pointer;
+}
+
+
+@media(max-width : 800px) {
+    .HeaderSearchBar {
+        display: none;
+    }
+
+    .HeaderTopLogo {
+        flex: 1;
+    }
+
 }

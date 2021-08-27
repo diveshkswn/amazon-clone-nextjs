@@ -2,6 +2,9 @@ import styles from '../styles/Homepage.module.css';
 
 export default function Homepage() {
   return (
-    <h1>Homepage</h1>
+    <>
+      <h1>Homepage</h1>
+
+    </>
   );
 }
