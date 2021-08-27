@@ -1,0 +1,20 @@
+.HeaderMainContainer {
+    width           : 100%;
+    height          : 85px;
+    background-color: aqua;
+
+
+}
+
+.HeaderTopContainer {
+    width           : 100%;
+    height          : 60px;
+    background-color: var(--amazon-blue-dark);
+
+}
+
+.HeaderTopLogo {
+    position: relative;
+    width   : 150px;
+    height  : 40px;
+}

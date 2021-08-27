@@ -1,0 +1,11 @@
+.LayoutMainContainer {
+    width         : 100vw;
+    min-height    : 101vh;
+    display       : flex;
+    flex-direction: column;
+}
+
+
+.LayoutMainContent {
+    flex: 1;
+}
