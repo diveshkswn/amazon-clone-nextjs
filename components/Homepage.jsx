@@ -1,7 +1,8 @@
 import styles from '../styles/Homepage.module.css';
 import Banner from './Banner';
+import ProductList from './product/ProductList';
 
-export default function Homepage() {
+export default function Homepage({ productList }) {
   return (
     <main className={styles.HomepageMainContainer}>
       <div className={styles.HomepageBanner}>
@@ -9,6 +10,7 @@ export default function Homepage() {
       </div>
       <div className={styles.HomepageProductList}>
         {/* ProductList */}
+        <ProductList productList={productList} />
       </div>
     </main>
   );

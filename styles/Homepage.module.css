@@ -2,6 +2,27 @@
     width           : 100vw;
     min-height      : 140vh;
     display         : flex;
-    justify-content : center;
+    flex-direction  : column;
+    align-items     : center;
     background-color: var(--amazon-bg-grey);
+}
+
+.HomepageProductList {
+    width    : 100vw;
+    max-width: 1200px;
+
+}
+
+
+@media(max-width : 900px) {
+    .HomepageProductList {
+        width: 95vw;
+    }
+}
+
+@media(min-width : 1200px) {
+    .HomepageProductList {
+        z-index   : 1;
+        margin-top: -100px;
+    }
 }

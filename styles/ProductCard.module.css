@@ -1,0 +1,84 @@
+.ProductCardMainContainer {
+    margin          : 10px 0;
+    width           : 100%;
+    min-width       : 220px;
+    height          : 400px;
+    padding         : 10px 20px;
+    background-color: white;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-evenly;
+    align-items     : center;
+    transition      : all 250ms ease;
+
+}
+
+.ProductCardMainContainer:hover {
+    transform : scale(1.03);
+    transition: all 250ms ease;
+}
+
+
+.ProductCategory {
+    width     : 100%;
+    text-align: right;
+    font-size : .7rem;
+    color     : gray;
+}
+
+.ProductImage {
+    position: relative;
+    height  : 40%;
+    width   : 80%;
+}
+
+.ProductTitle {
+    width      : 100%;
+    text-align : left;
+    font-size  : 1.1rem;
+    font-weight: bold;
+}
+
+.ProductRating {
+    text-align     : left;
+    width          : 100%;
+    display        : flex;
+    justify-content: flex-start;
+    color          : var(--amazon-yellow-dark);
+}
+
+.ProductPrice {
+    width      : 100%;
+    text-align : left;
+    font-weight: bold;
+}
+
+.PrimeDelivery {
+    width      : 100%;
+    position   : relative;
+    display    : flex;
+    font-size  : .7rem;
+    align-items: center;
+    color      : gray;
+}
+
+.AddToCart {
+    text-align: center;
+    width     : 100%;
+}
+
+.Description {
+    font-size    : .9rem;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+    overflow     : hidden;
+
+    width: 100%;
+}
+
+
+@media(min-width:501px) {
+    .ProductCardMainContainer {
+        max-width: 250px;
+    }
+}
