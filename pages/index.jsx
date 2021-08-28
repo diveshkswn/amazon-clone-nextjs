@@ -1,5 +1,4 @@
 import Homepage from '../components/Homepage';
-
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -10,3 +9,9 @@ export default function Home() {
     </div>
   );
 }
+
+// export async function getStaticProps() {
+//   return {
+//     props: { bannerProps: bannerData }, // will be passed to the page component as props
+//   };
+// }

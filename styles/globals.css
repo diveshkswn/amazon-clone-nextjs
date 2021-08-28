@@ -2,6 +2,7 @@ html,
 
 
 :root {
+  --amazon-bg-grey    : #EAEDED;
   --amazon-blue       : #232F3E;
   --amazon-blue-dark  : #131921;
   --amazon-yellow     : #FEBD69;

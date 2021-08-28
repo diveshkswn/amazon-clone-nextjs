@@ -1,0 +1,7 @@
+.HomepageMainContainer {
+    width           : 100vw;
+    min-height      : 140vh;
+    display         : flex;
+    justify-content : center;
+    background-color: var(--amazon-bg-grey);
+}

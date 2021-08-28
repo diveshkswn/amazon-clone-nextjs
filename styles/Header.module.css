@@ -134,6 +134,11 @@
         display: none;
     }
 
+    .HeaderTopContainer {
+        padding-top: 10px;
+        height     : 90px;
+    }
+
     .HeaderTopLogo {
         flex: 1;
     }
