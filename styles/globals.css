@@ -2,11 +2,13 @@ html,
 
 
 :root {
-  --amazon-bg-grey    : #EAEDED;
-  --amazon-blue       : #232F3E;
-  --amazon-blue-dark  : #131921;
-  --amazon-yellow     : #FEBD69;
-  --amazon-yellow-dark: #FFA41C;
+  --amazon-bg-grey            : #EAEDED;
+  --amazon-blue               : #232F3E;
+  --amazon-footer-button      : #37475A;
+  --amazon-footer-button-hover: #3f5166;
+  --amazon-blue-dark          : #131921;
+  --amazon-yellow             : #FEBD69;
+  --amazon-yellow-dark        : #FFA41C;
 }
 
 body {

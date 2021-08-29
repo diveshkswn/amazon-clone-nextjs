@@ -1,0 +1,36 @@
+.FooterMainContainer {
+    width           : 100%;
+    height          : 200px;
+    background-color: var(--amazon-blue);
+    color           : white;
+}
+
+
+.FooterButton {
+    width           : 100%;
+    height          : 50px;
+    padding         : 15px;
+    text-align      : center;
+    cursor          : pointer;
+    background-color: var(--amazon-footer-button);
+}
+
+.FooterButton:hover {
+    background-color: var(--amazon-footer-button-hover);
+}
+
+.FooterContent {
+    width           : 100%;
+    height          : 100%;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    background-color: var(--amazon-blue);
+}
+
+.FooterContent a {
+    color      : greenyellow;
+    font-size  : 1.2rem;
+    font-weight: bold;
+
+}
