@@ -5,4 +5,5 @@ export const bannerData = [{ id: 1, bannerUrl: '/static/banner/Banner_1.jpg' },
   { id: 4, bannerUrl: '/static/banner/Banner_4.jpg' },
   { id: 5, bannerUrl: '/static/banner/Banner_5.jpg' },
   { id: 6, bannerUrl: '/static/banner/Banner_6.jpg' },
+  { id: 7, bannerUrl: '/static/banner/Banner_7.jpg' },
 ];

@@ -1,0 +1,68 @@
+.CheckoutPageMainContainer {
+    width                : 100vw;
+    min-height           : 100vh;
+    padding-bottom       : 20px;
+    background-color     : var(--amazon-bg-grey);
+    display              : grid;
+    gap                  : 20px;
+    grid-template-columns: 7fr 3fr;
+
+}
+
+
+.CartBanner {
+    margin  : 20px;
+    position: relative;
+    height  : 200px;
+}
+
+.CartProductList {
+    padding         : 20px;
+    min-height      : 65%;
+    background-color: white;
+}
+
+.CartListHeading {
+    font-size  : 2.5rem;
+    font-weight: bold;
+}
+
+.ProceedToCheckout {
+    height          : 100%;
+    width           : 100%;
+    background-color: white;
+    text-align      : center;
+    padding-top     : 20px;
+}
+
+.ItemAndAmount span {
+
+    font-weight: bold;
+}
+
+@media(max-width : 900px) {
+
+    .CartBanner {
+        margin: 0;
+        height: 20vh;
+        width : 100vw;
+    }
+
+    .CheckoutPageMainContainer {
+        min-height     : 100vh;
+        display        : flex;
+        flex-direction : column;
+        align-items    : center;
+        justify-content: space-evenly;
+    }
+
+    .CartProductList {
+        width     : 97vw;
+        min-height: 50vh;
+
+    }
+
+    .ProceedToCheckout {
+        min-height: 200px;
+    }
+}

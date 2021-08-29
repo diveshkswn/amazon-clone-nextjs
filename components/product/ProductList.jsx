@@ -7,6 +7,7 @@ export default function ProductList({ productList }) {
     return (
       <ProductCard
         key={product.id}
+        id={product.id}
         title={product.title}
         imageURL={product.image}
         description={product.description}
@@ -22,7 +23,7 @@ export default function ProductList({ productList }) {
         {productList.slice(0, 4).map(populateProducts)}
       </div>
       <div className={styles.AmazonAd}>
-        <Image src="/static/ad/amazon_ad2.jpg" layout="fill" objectFit="contain" alt="AD" />
+        <Image src="/static/ad/amazon_ad2.jpg" layout="fill" objectFit="contain" alt="AD1" />
       </div>
       <div className={styles.ProductListMainContainer}>
         {productList.slice(5, 9).map(populateProducts)}

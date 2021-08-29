@@ -22,7 +22,7 @@ export default function Banner() {
       <div className={styles.BannerGradient} />
       {/* ********* Gradient********** */}
 
-      <Carousel autoPlay infiniteLoop showStatus={false} showIndicators={false} showThumbs={false} interval={4000}>
+      <Carousel autoPlay infiniteLoop showStatus={false} showIndicators={false} showThumbs={false} interval={4500}>
         {bannerData.map(populateBanners)}
       </Carousel>
     </div>
