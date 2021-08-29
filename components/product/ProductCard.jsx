@@ -21,7 +21,7 @@ export default function ProductCard({
 
   function handleAddCart() {
     dispatch(addToCart({
-      id, title, description, price, imageURL, category,
+      id, title, description, price, imageURL, category, primeDeliveryState,
     }));
   }
 

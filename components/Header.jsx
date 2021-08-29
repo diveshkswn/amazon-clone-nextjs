@@ -15,7 +15,7 @@ export default function Header() {
   const bottomNavRef = useRef();
   const { currentUser } = useAuth();
   const cartList = useSelector((state) => state.cart.cartList);
-  console.log(cartList);
+
   function handleRoute(path) {
     router.push(`/${path}`);
   }
@@ -68,7 +68,7 @@ export default function Header() {
             <p>Orders</p>
           </div>
           <div className={styles.HeaderCart} onClick={() => handleRoute('checkout')}>
-            <span>0</span>
+            <span>{cartList ? cartList.length : 0}</span>
             <BiCart size={40} />
 
           </div>

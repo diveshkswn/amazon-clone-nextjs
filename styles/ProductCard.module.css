@@ -9,13 +9,13 @@
     flex-direction  : column;
     justify-content : space-evenly;
     align-items     : center;
-    transition      : all 250ms ease;
+    transition      : all 200ms ease;
 
 }
 
 .ProductCardMainContainer:hover {
     transform : scale(1.03);
-    transition: all 250ms ease;
+    transition: all 200ms ease;
 }
 
 

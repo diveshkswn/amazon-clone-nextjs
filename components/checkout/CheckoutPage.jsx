@@ -1,12 +1,30 @@
+/* eslint-disable no-param-reassign */
 import Image from 'next/image';
 import {
 
   Button,
 
 } from '@chakra-ui/react';
-import styles from '../styles/CheckoutPage.module.css';
+import { useSelector } from 'react-redux';
+import styles from '../../styles/CheckoutPage.module.css';
+import CartList from './CartList';
+import { useAuth } from '../../context/AuthContext';
 
 export default function CheckoutPage() {
+  const { currentUser } = useAuth();
+  const cartList = useSelector((state) => state.cart.cartList);
+
+  let totalPrice = cartList.reduce((acc, i) => {
+    acc += (i.price * i.qty);
+    return acc;
+  }, 0);
+
+  const totalQty = cartList.reduce((acc, i) => {
+    acc += i.qty;
+    return acc;
+  }, 0);
+  totalPrice = parseFloat(totalPrice).toFixed(2);
+
   return (
     <div className={styles.CheckoutPageMainContainer}>
       <div className={styles.CartList}>
@@ -17,15 +35,22 @@ export default function CheckoutPage() {
           <div className={styles.CartListHeading}>
             Cart Items
           </div>
-          <h1>CartList</h1>
+          {/* Cart List */}
+          <CartList cartList={cartList} />
 
         </div>
       </div>
       <div className={styles.ProceedToCheckout}>
         <div className={styles.ItemAndAmount}>
-          Total(2 items) :
+          Total(
+          {totalQty}
           {' '}
-          <span>100$</span>
+          items) :
+          {' '}
+          <span>
+            {totalPrice}
+            $
+          </span>
         </div>
         <div className={styles.CheckoutButton}>
           <Button
@@ -34,10 +59,10 @@ export default function CheckoutPage() {
             _hover={{ backgroundColor: 'var(--amazon-yellow-dark)' }}
             bgColor="var(--amazon-yellow)"
             width="80%"
-            disabled
+            disabled={!currentUser || cartList?.length < 1}
             _focus={{ outline: 'none' }}
           >
-            Proceed To Checkout
+            {currentUser ? 'Proceed To Checkout' : 'Sign in to Checkout'}
           </Button>
         </div>
       </div>
