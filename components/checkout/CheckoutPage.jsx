@@ -6,14 +6,16 @@ import {
 
 } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
+import { loadStripe } from '@stripe/stripe-js';
 import styles from '../../styles/CheckoutPage.module.css';
 import CartList from './CartList';
 import { useAuth } from '../../context/AuthContext';
 
 export default function CheckoutPage() {
+  //
   const { currentUser } = useAuth();
   const cartList = useSelector((state) => state.cart.cartList);
-
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
   let totalPrice = cartList.reduce((acc, i) => {
     acc += (i.price * i.qty);
     return acc;
@@ -24,6 +26,12 @@ export default function CheckoutPage() {
     return acc;
   }, 0);
   totalPrice = parseFloat(totalPrice).toFixed(2);
+
+  // Stripe checkout session
+
+  function createCheckoutSession() {
+
+  }
 
   return (
     <div className={styles.CheckoutPageMainContainer}>
@@ -61,6 +69,7 @@ export default function CheckoutPage() {
             width="80%"
             disabled={!currentUser || cartList?.length < 1}
             _focus={{ outline: 'none' }}
+            role="link"
           >
             {currentUser ? 'Proceed To Checkout' : 'Sign in to Checkout'}
           </Button>
