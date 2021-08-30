@@ -12,7 +12,7 @@ export default function ProductList({ productList }) {
         imageURL={product.image}
         description={product.description}
         category={product.category}
-        price={parseFloat(product.price * 82).toFixed(2)}
+        price={parseFloat(product.price * 42).toFixed(2)} // Converting $ to rupee.
       />
     );
   }
