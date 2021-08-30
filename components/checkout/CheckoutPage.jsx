@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-param-reassign */
 import Image from 'next/image';
 import {
@@ -29,8 +30,21 @@ export default function CheckoutPage() {
 
   // Stripe checkout session
 
-  function createCheckoutSession() {
+  async function createCheckoutSession() {
+    const stripe = await stripePromise;
 
+    // Calling backend endpoint to create checkout session
+    const checkoutSession = await fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({ email: currentUser?.email, items: cartList }), // body data type must match "Content-Type" header
+    });
+
+    const data = await checkoutSession.json();
+    console.log(data);
   }
 
   return (
@@ -70,6 +84,7 @@ export default function CheckoutPage() {
             disabled={!currentUser || cartList?.length < 1}
             _focus={{ outline: 'none' }}
             role="link"
+            onClick={() => createCheckoutSession()}
           >
             {currentUser ? 'Proceed To Checkout' : 'Sign in to Checkout'}
           </Button>
