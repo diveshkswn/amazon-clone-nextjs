@@ -46,7 +46,7 @@ export default function ProductCard({
       <div className={styles.ProductPrice}>
         {price}
         {' '}
-        $
+        ₹
       </div>
 
       <div className={styles.PrimeDelivery}>

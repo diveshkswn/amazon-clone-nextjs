@@ -31,7 +31,7 @@ export default function CartCard({
           <span>
             {price}
             {' '}
-            $
+            ₹
           </span>
 
           {' '}

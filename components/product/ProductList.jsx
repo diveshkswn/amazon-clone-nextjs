@@ -12,7 +12,7 @@ export default function ProductList({ productList }) {
         imageURL={product.image}
         description={product.description}
         category={product.category}
-        price={product.price}
+        price={parseFloat(product.price * 82).toFixed(2)}
       />
     );
   }
