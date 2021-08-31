@@ -29,7 +29,6 @@ export default function CheckoutPage() {
     return acc;
   }, 0);
   totalPrice = parseFloat(totalPrice).toFixed(2);
-
   // Stripe checkout session
 
   async function createCheckoutSession() {
@@ -48,7 +47,7 @@ export default function CheckoutPage() {
       });
 
       const resData = await checkoutSession.json();
-      console.log(resData.id);
+      // console.log(resData.id);
 
       // Redirect user to stripe Checkout with session id received from backend
       const result = await stripe.redirectToCheckout({

@@ -63,7 +63,7 @@ export default function Header() {
             </p>
             <p>Account & Wishlist</p>
           </div>
-          <div className={styles.HeaderOrderDetails}>
+          <div className={styles.HeaderOrderDetails} onClick={() => handleRoute('orders')}>
             <p>Returns</p>
             <p>Orders</p>
           </div>

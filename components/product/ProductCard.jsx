@@ -15,8 +15,8 @@ export default function ProductCard({
 
   const randomPrimeDelivery = randomRatingLength > 3;
 
-  const [ratingState, setRatingState] = useState(randomRatingLength);
-  const [primeDeliveryState, setPrimeDeliveryState] = useState(randomPrimeDelivery);
+  const [ratingState] = useState(randomRatingLength);
+  const [primeDeliveryState] = useState(randomPrimeDelivery);
   const dispatch = useDispatch();
 
   function handleAddCart() {
