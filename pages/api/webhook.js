@@ -20,6 +20,8 @@ async function fulfillOrder(session) {
     .collection('orders')
     .doc(session.id)
     .set({
+      title: JSON.parse(session.metadata.title),
+      qty: session.metadata.qty,
       amount: session.amount_total / 100,
       amount_shipping: session.total_details.amount_shipping / 100,
       images: JSON.parse(session.metadata.images),

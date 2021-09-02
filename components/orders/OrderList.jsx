@@ -1,10 +1,30 @@
 import OrderCard from './OrderCard';
 
-export default function OrdersList() {
+export default function OrdersList({ orderList }) {
+  console.log(orderList);
+
+  function populateOrderCards(order) {
+    return (
+      <OrderCard
+        key={order.id}
+        orderNo={order.id}
+        amount={order.amount}
+        images={order.images}
+        items={order.items}
+        date={order.timestamp}
+
+      />
+    );
+  }
+
   return (
     <>
-      <span>12 Orders Placed</span>
-      <OrderCard />
+      <span>
+        {orderList.length}
+        {' '}
+        Orders Placed
+      </span>
+      {orderList.length > 0 ? orderList.map(populateOrderCards) : ''}
     </>
   );
 }

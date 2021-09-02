@@ -5,3 +5,13 @@ export default function Success() {
     <SuccessPage />
   );
 }
+
+// export async function getServerSideProps(context) {
+//   // /success?orderToken=a
+
+//   console.log(context.query);
+
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   };
+// }

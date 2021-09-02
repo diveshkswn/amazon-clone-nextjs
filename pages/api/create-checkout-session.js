@@ -22,9 +22,14 @@ export default async function handler(req, res) {
     line_items: transformedItems,
     mode: 'payment',
     shipping_rates: ['shr_1JU6IXSAojnrOcUVtKAE2ps2'],
-    success_url: `${req.headers.origin}/success`,
+    success_url: `${req.headers.origin}/success?orderToken=${'jwt_kajdakjd'}`,
     cancel_url: `${req.headers.origin}/cancelled`,
-    metadata: { email, images: JSON.stringify(items.map((item) => item.imageURL)) },
+    metadata: {
+      email,
+      title: JSON.stringify(items.map((item) => item.title)),
+      qty: items.length,
+      images: JSON.stringify(items.map((item) => item.imageURL)),
+    },
     // title: JSON.stringify(items.map((item) => item.title)),
   });
 

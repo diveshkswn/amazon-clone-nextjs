@@ -16,7 +16,7 @@ export default function Footer() {
       </div>
       <div className={styles.FooterContent}>
         <span>
-          Develop by
+          Developed by
           {' '}
           <a href="https://diveshkswn.github.io/portfolio_/" target="_blank" rel="noreferrer">Divesh Keswani</a>
         </span>

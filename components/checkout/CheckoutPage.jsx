@@ -9,6 +9,7 @@ import {
 import { useSelector } from 'react-redux';
 import { loadStripe } from '@stripe/stripe-js';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import styles from '../../styles/CheckoutPage.module.css';
 import CartList from './CartList';
 import { useAuth } from '../../context/AuthContext';
@@ -33,7 +34,6 @@ export default function CheckoutPage() {
 
   async function createCheckoutSession() {
     const stripe = await stripePromise;
-
     try {
       //
     // Calling backend endpoint to create checkout session
@@ -47,9 +47,10 @@ export default function CheckoutPage() {
       });
 
       const resData = await checkoutSession.json();
-      // console.log(resData.id);
+      console.log(resData.id);
 
       // Redirect user to stripe Checkout with session id received from backend
+
       const result = await stripe.redirectToCheckout({
         sessionId: resData.id,
       });
@@ -60,6 +61,7 @@ export default function CheckoutPage() {
   }
 
   return (
+
     <div className={styles.CheckoutPageMainContainer}>
       <div className={styles.CartList}>
         <div className={styles.CartBanner}>

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import styles from '../../styles/ProductList.module.css';
 import ProductCard from './ProductCard';
@@ -19,9 +20,15 @@ export default function ProductList({ productList }) {
 
   return (
     <>
-      <div className={styles.ProductListMainContainer}>
-        {productList.slice(0, 4).map(populateProducts)}
-      </div>
+      <motion.div
+        initial={{ y: -300, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, type: 'tween' }}
+      >
+        <div className={styles.ProductListMainContainer}>
+          {productList.slice(0, 4).map(populateProducts)}
+        </div>
+      </motion.div>
       <div className={styles.AmazonAd}>
         <Image src="/static/ad/amazon_ad2.jpg" layout="fill" objectFit="contain" alt="AD1" />
       </div>
