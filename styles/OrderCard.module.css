@@ -17,11 +17,11 @@
 }
 
 .OrderImages {
-    position: relative;
-    padding : 10px;
-    height  : 175px;
-    width   : 60%;
-    display : flex;
+    position  : relative;
+    padding   : 10px;
+    min-height: 175px;
+    width     : 60%;
+    display   : flex;
 }
 
 .OrderImages img {
@@ -29,6 +29,7 @@
     height    : 100%;
     width     : 50%;
     max-width : 100px;
+    margin    : 0px 20px 20px 0;
 }
 
 .OrderPlaced>div:nth-child(1),
@@ -42,4 +43,10 @@
 
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+
+    .OrderImages {
+        flex-direction: column;
+    }
+
+
 }

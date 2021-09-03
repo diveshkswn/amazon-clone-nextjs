@@ -17,6 +17,7 @@ export default function CheckoutPage() {
   //
   const { currentUser } = useAuth();
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const cartList = useSelector((state) => state.cart.cartList);
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
   let totalPrice = cartList.reduce((acc, i) => {
@@ -34,8 +35,9 @@ export default function CheckoutPage() {
   async function createCheckoutSession() {
     const stripe = await stripePromise;
     try {
+      setLoading(true);
       //
-    // Calling backend endpoint to create checkout session
+      // Calling backend endpoint to create checkout session
       const checkoutSession = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: {
@@ -49,7 +51,6 @@ export default function CheckoutPage() {
       console.log(resData.id);
 
       // Redirect user to stripe Checkout with session id received from backend
-
       const result = await stripe.redirectToCheckout({
         sessionId: resData.id,
       });
@@ -57,6 +58,7 @@ export default function CheckoutPage() {
       console.log(e.message);
       setError('Something went wrong. Try Again Later');
     }
+    setLoading(false);
   }
 
   return (
@@ -97,6 +99,7 @@ export default function CheckoutPage() {
             disabled={!currentUser || cartList?.length < 1}
             _focus={{ outline: 'none' }}
             role="link"
+            isLoading={loading}
             onClick={() => createCheckoutSession()}
           >
             {currentUser ? 'Proceed To Checkout' : 'Sign in to Checkout'}
