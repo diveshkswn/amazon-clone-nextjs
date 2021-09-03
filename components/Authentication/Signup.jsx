@@ -11,7 +11,7 @@ import {
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 import { signup } from '../../context/AuthContext';
-
+//
 export default function Signup({ signupState, setLoginState, setSignupState }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
