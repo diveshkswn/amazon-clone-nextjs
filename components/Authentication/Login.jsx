@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
+import styles from '../../styles/Login.module.css';
 import { login } from '../../context/AuthContext';
 
 export default function Login({ loginState, setLoginState, setSignupState }) {
@@ -40,7 +41,7 @@ export default function Login({ loginState, setLoginState, setSignupState }) {
 
   return (
     <SlideFade in={loginState} offsetY="100px">
-      <div className="LoginMainContainer">
+      <div className={styles.LoginMainContainer}>
         <Text fontSize="3xl" align="center">Login</Text>
         <form onSubmit={handleSubmit}>
           <FormControl>
@@ -65,7 +66,7 @@ export default function Login({ loginState, setLoginState, setSignupState }) {
             >
               Submit
             </Button>
-            <FormErrorMessage fontSize="large" fontWeight="extrabold" color="ActiveCaption">{error}</FormErrorMessage>
+            <FormErrorMessage fontSize="sm" fontWeight="bold" color="black">{error}</FormErrorMessage>
           </FormControl>
         </form>
         <Text fontSize="xl" align="center" mt={10}>

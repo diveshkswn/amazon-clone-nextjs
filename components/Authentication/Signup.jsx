@@ -72,7 +72,7 @@ export default function Signup({ signupState, setLoginState, setSignupState }) {
             >
               Submit
             </Button>
-            <FormErrorMessage fontSize="large" fontWeight="extrabold" color="ActiveCaption">{error}</FormErrorMessage>
+            <FormErrorMessage fontSize="sm" fontWeight="bold" color="black">{error}</FormErrorMessage>
           </FormControl>
         </form>
         <Text fontSize="xl" align="center">
