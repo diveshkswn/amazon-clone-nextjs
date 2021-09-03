@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
-import styles from '../../styles/Login.module.css';
 import { login } from '../../context/AuthContext';
 
 export default function Login({ loginState, setLoginState, setSignupState }) {

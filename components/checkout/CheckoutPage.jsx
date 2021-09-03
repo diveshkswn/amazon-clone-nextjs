@@ -9,7 +9,6 @@ import {
 import { useSelector } from 'react-redux';
 import { loadStripe } from '@stripe/stripe-js';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import styles from '../../styles/CheckoutPage.module.css';
 import CartList from './CartList';
 import { useAuth } from '../../context/AuthContext';
