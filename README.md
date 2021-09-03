@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Deployed on Vercel : https://amazon-clone-nextjs-rose.vercel.app
+
+### API
+```bash
+https://amazon-clone-nextjs-rose.vercel.app/api/products    //Fetch All Products
+https://amazon-clone-nextjs-rose.vercel.app/api/product/:id    //Get Product by Id
+
+```
+
 First, run the development server:
 
 ```bash
