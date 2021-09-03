@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import moment from 'moment';
-import Image from 'next/image';
 import styles from '../../styles/OrderCard.module.css';
 
 export default function OrderCard({

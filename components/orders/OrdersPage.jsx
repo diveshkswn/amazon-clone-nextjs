@@ -23,6 +23,7 @@ export default function OrdersPage({ orderList }) {
       animate={{ y: 0, scale: 1, opacity: 1 }}
       transition={{ duration: 0.3, type: 'tween' }}
     >
+
       <div className={styles.OrdersPageMainContainer}>
         <div className={styles.OrdersContent}>
           <div className={styles.OrdersHeading}>

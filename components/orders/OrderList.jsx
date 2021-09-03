@@ -1,8 +1,6 @@
 import OrderCard from './OrderCard';
 
 export default function OrdersList({ orderList }) {
-  console.log(orderList);
-
   function populateOrderCards(order) {
     return (
       <OrderCard

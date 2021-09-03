@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 import { Progress } from '@chakra-ui/react';
-import moment from 'moment';
 import OrdersPage from '../components/orders/OrdersPage';
 import { projectFirestore } from '../firebase';
 import { useAuth } from '../context/AuthContext';
