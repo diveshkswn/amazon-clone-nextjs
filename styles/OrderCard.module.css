@@ -1,0 +1,45 @@
+.OrderCardMainContainer {
+    width        : 100%;
+    min-height   : 250px;
+    border-radius: 10px;
+    box-shadow   : 0 .4rem 2rem rgb(26 26 44 / 10%);
+    margin-top   : 20px;
+}
+
+.OrderHeading {
+    width                : 100%;
+    min-height           : 75px;
+    padding              : 10px;
+    background-color     : var(--amazon-bg-grey);
+    display              : grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr;
+    font-size            : .8rem;
+}
+
+.OrderImages {
+    position: relative;
+    padding : 10px;
+    height  : 175px;
+    width   : 60%;
+    display : flex;
+}
+
+.OrderImages img {
+    object-fit: contain;
+    height    : 100%;
+    width     : 50%;
+    max-width : 100px;
+}
+
+.OrderPlaced>div:nth-child(1),
+.OrderTotal>div:nth-child(1),
+.OrderNo>div:nth-child(1) {
+    font-weight: bold;
+}
+
+@media(max-width : 900px) {
+    .OrderHeading {
+
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-param-reassign */
 import Image from 'next/image';
 import {
@@ -6,14 +7,19 @@ import {
 
 } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
+import { loadStripe } from '@stripe/stripe-js';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import styles from '../../styles/CheckoutPage.module.css';
 import CartList from './CartList';
 import { useAuth } from '../../context/AuthContext';
 
 export default function CheckoutPage() {
+  //
   const { currentUser } = useAuth();
+  const [error, setError] = useState('');
   const cartList = useSelector((state) => state.cart.cartList);
-
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
   let totalPrice = cartList.reduce((acc, i) => {
     acc += (i.price * i.qty);
     return acc;
@@ -24,8 +30,38 @@ export default function CheckoutPage() {
     return acc;
   }, 0);
   totalPrice = parseFloat(totalPrice).toFixed(2);
+  // Stripe checkout session
+
+  async function createCheckoutSession() {
+    const stripe = await stripePromise;
+    try {
+      //
+    // Calling backend endpoint to create checkout session
+      const checkoutSession = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({ email: currentUser?.email, items: cartList }), // body data type must match "Content-Type" header
+      });
+
+      const resData = await checkoutSession.json();
+      console.log(resData.id);
+
+      // Redirect user to stripe Checkout with session id received from backend
+
+      const result = await stripe.redirectToCheckout({
+        sessionId: resData.id,
+      });
+    } catch (e) {
+      console.log(e.message);
+      setError('Something went wrong. Try Again Later');
+    }
+  }
 
   return (
+
     <div className={styles.CheckoutPageMainContainer}>
       <div className={styles.CartList}>
         <div className={styles.CartBanner}>
@@ -49,7 +85,7 @@ export default function CheckoutPage() {
           {' '}
           <span>
             {totalPrice}
-            $
+            ₹
           </span>
         </div>
         <div className={styles.CheckoutButton}>
@@ -61,10 +97,13 @@ export default function CheckoutPage() {
             width="80%"
             disabled={!currentUser || cartList?.length < 1}
             _focus={{ outline: 'none' }}
+            role="link"
+            onClick={() => createCheckoutSession()}
           >
             {currentUser ? 'Proceed To Checkout' : 'Sign in to Checkout'}
           </Button>
         </div>
+        <span>{error}</span>
       </div>
     </div>
   );

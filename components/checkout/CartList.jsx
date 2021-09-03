@@ -11,7 +11,7 @@ export default function CartList({ cartList }) {
         qty={cart.qty}
         imageURL={cart.imageURL}
         description={cart.description}
-        primeDeliveryState={cart.primeDeliveryState}
+        primeDeliveryState={cart.hasPrime}
         category={cart.category}
         price={cart.price}
       />

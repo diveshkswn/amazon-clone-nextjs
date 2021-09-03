@@ -15,13 +15,13 @@ export default function ProductCard({
 
   const randomPrimeDelivery = randomRatingLength > 3;
 
-  const [ratingState, setRatingState] = useState(randomRatingLength);
-  const [primeDeliveryState, setPrimeDeliveryState] = useState(randomPrimeDelivery);
+  const [ratingState] = useState(randomRatingLength);
+  const [primeDeliveryState] = useState(randomPrimeDelivery);
   const dispatch = useDispatch();
 
   function handleAddCart() {
     dispatch(addToCart({
-      id, title, description, price, imageURL, category, primeDeliveryState,
+      id, title, description, price, imageURL, category, rating: ratingState, hasPrime: primeDeliveryState,
     }));
   }
 
@@ -46,7 +46,7 @@ export default function ProductCard({
       <div className={styles.ProductPrice}>
         {price}
         {' '}
-        $
+        ₹
       </div>
 
       <div className={styles.PrimeDelivery}>
