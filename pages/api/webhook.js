@@ -5,10 +5,20 @@ import * as admin from 'firebase-admin';
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // Secure a connection to firebase.
-const serviceAccount = require('../../serviceAccountKey.json');
 
 const app = !admin.apps.length ? admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert({
+    type: process.env.Service_Account_type,
+    project_id: process.env.Service_Account_project_id,
+    private_key_id: process.env.Service_Account_private_key_id,
+    private_key: process.env.Service_Account_private_key,
+    client_email: process.env.Service_Account_client_email,
+    client_id: process.env.Service_Account_client_id,
+    auth_uri: process.env.Service_Account_auth_uri,
+    token_uri: process.env.Service_Account_token_uri,
+    auth_provider_x509_cert_url: process.env.Service_Account_auth_provider_x509_cert_url,
+    client_x509_cert_url: process.env.Service_Account_client_x509_cert_url,
+  }),
 }) : admin.app();
 
 const endPointSecret = process.env.STRIPE_SIGNING_SECRET;
