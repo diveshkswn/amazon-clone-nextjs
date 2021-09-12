@@ -11,6 +11,11 @@ https://amazon-clone-nextjs-rose.vercel.app/api/product/:id    //Get Product by 
 
 ```
 
+### Other Links
+- PWA Manifest generator : (https://www.simicart.com/manifest-generator.html/)
+- Enabling PWA in Next js : (https://itnext.io/pwa-with-next-js-create-next-app-in-2020-%EF%B8%8F-9ee0e1a6313d)
+
+
 First, run the development server:
 
 ```bash
